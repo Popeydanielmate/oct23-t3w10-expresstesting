@@ -1,4 +1,3 @@
-
 const express = require("express");
 const app = express();
 
@@ -11,15 +10,14 @@ const apiV2 = require("./v2/index.js");
 app.use("/v2", apiV2);
 
 app.use((error, request, response, next) => {
+	console.log(error.message);
 	response.json({
 		message:"Error occured!",
-		error: error
+		error: error.message
 	});
 });
 
 
-app.listen(port, () => {
-	console.log(`Server is running on port ${port}`);
-});
 
-module.exports = {app}
+
+module.exports = {app, port}
