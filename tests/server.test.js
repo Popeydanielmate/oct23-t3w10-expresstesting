@@ -37,7 +37,7 @@ describe("v2/ functionality", () => {
 	})
 
     it("v2/headercheck GET receives an auth header correctly", async () => {
-		const response = await request(app).get("/v2/headercheck").auth("alex was here", {type: "bearer"});
+		const response = await request(app).get("/v2/headercheck").auth("Daniel was here", {type: "bearer"});
 
 		expect(response.body.data).toBe("Bearer Daniel was here");
 	});
